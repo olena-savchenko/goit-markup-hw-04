@@ -3,6 +3,7 @@
   --secondary-bgr: #f5f4fa;
   --hero-footer-bgr: #2f303a;
   --btn-active-bgr: #188ce8;
+  --social-link-bgr: rgba(255, 255, 255, 0.1);
 
   --primary-color: #757575;
   --title-color: #212121;
@@ -10,9 +11,14 @@
   --black-color: #000000;
   --white-color: #ffffff;
   --opacity-white-color: rgba(255, 255, 255, 0.6);
+  --social-link-color: #afb1b8;
+  --clients-logo-color: #afb1b8;
 
   --header-border-color: #ececec;
   --project-border-color: #eeeeee;
+
+  --shadow-hero-btn: rgba(0, 0, 0, 0.15);
+  --gradient-hero-bgr: rgba(47, 48, 58, 0.4);
 }
 
 body {
@@ -63,7 +69,7 @@ img {
   padding: 94px 0;
 }
 
-/* HEADER */
+/* ------------------HEADER------------------ */
 .header {
   border-bottom: 1px solid var(--header-border-color);
 }
@@ -110,25 +116,44 @@ img {
 }
 
 .contact-link {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+
   color: currentColor;
+}
+.icon {
+  fill: currentColor;
 }
 
 .header-link:hover,
-.header-link:focus,
+.header-link:focus {
+  color: var(--accent-color);
+}
+
 .contact-link:hover,
 .contact-link:focus {
   color: var(--accent-color);
 }
-
 .current-page {
   color: var(--accent-color);
 }
 
-/* HERO */
+/* ---------------------HERO--------------------- */
 .hero {
-  background-color: var(--hero-footer-bgr);
   padding-top: 200px;
   padding-bottom: 200px;
+  max-width: 1600px;
+  height: 600px;
+  margin: 0 auto;
+
+  background-color: var(--hero-footer-bgr);
+  background-image: linear-gradient(var(--gradient-hero-bgr), var(--gradient-hero-bgr)),
+    url(../images/hero.jpg);
+
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
 }
 
 .hero-title {
@@ -167,10 +192,10 @@ img {
 .hero-btn:hover,
 .hero-btn:focus {
   background-color: var(--btn-active-bgr);
-  box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.15);
+  box-shadow: 0px 4px 4px var(--shadow-hero-btn);
 }
 
-/* Наші переваги */
+/*----------------------- НАШІ ПЕРЕВАГИ ----------------------*/
 .visually-hidden {
   position: absolute;
   width: 1px;
@@ -194,30 +219,42 @@ img {
   width: calc((100% - 90px) / 4);
 }
 
+.benefits-icon {
+  display: flex;
+  height: 120px;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 30px;
+
+  border-radius: 4px;
+
+  background-color: var(--secondary-bgr);
+}
 .benefits-title {
+   margin-bottom: 10px;
+
   font-size: 14px;
   line-height: 1.14;
   text-transform: uppercase;
-  margin-bottom: 10px;
-
+ 
   color: var(--title-color);
 }
 .benefits-txt {
   line-height: 1.71;
 }
 
-/* Чим ми займаємось */
+/*------------------------ЧИМ МИ ЗАЙМАЄМОСЬ---------------------- */
 .works.section {
   padding-top: 0;
 }
 
-.works-title,
-.team-title {
+.section-title {
+   margin-bottom: 50px;
+
   font-size: 36px;
   line-height: 1.17;
   text-align: center;
-  margin-bottom: 50px;
-
+ 
   color: var(--title-color);
 }
 
@@ -230,7 +267,7 @@ img {
   width: calc((100% - 60px) / 3);
 }
 
-/* Наша команда */
+/*--------------------------НАША КОМАНДА---------------------------*/
 .team {
   background-color: var(--secondary-bgr);
 }
@@ -239,7 +276,7 @@ img {
   gap: 30px;
 }
 
-.team-holder {
+.team-item {
   width: calc((100% - 90px) / 4);
 
   background-color: var(--primary-bgr);
@@ -249,39 +286,106 @@ img {
     0px 2px 1px rgba(0, 0, 0, 0.2);
 }
 
-.team-item {
+.team-wrap {
   padding-top: 30px;
   padding-bottom: 30px;
 }
 .team-member {
+  margin-bottom: 10px;
+
   font-weight: 500;
   font-size: 16px;
   line-height: 1.19;
   text-align: center;
-  margin-bottom: 10px;
-
+  
   color: var(--title-color);
 }
 .team-position {
+  margin-bottom: 16px;
+
   font-size: 16px;
   line-height: 1.19;
-  text-align: center;
+  text-align: center; 
+}
+.social-list {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+}
+.social-item {
+  width: 44px;
+  height: 44px;
+}
+.social-link {
+  display: flex;
+  width: 100%;
+  height: 100%;
+  align-items: center;
+  justify-content: center;
+
+  color: var(--social-link-color);
+  border-radius: 50%;
+}
+.social-icon {
+  fill: currentColor;
+}
+.social-link:hover,
+.social-link:focus {
+  background-color: var(--accent-color);
+  color: var(--white-color);
 }
 
-/* Footer */
+/* -------------------------ПОСТІЙНІ КЛІЄНТИ----------------------- */
+.clients-list {
+  display: flex;
+  gap: 30px;
+}
+
+.clients-item {
+  width: calc((100% - 150px) / 6);
+  height: 92px;
+}
+
+.clients-link {
+  display: flex;
+  width: 100%;
+  height: 100%;
+  align-items: center;
+  justify-content: center;
+
+  color: var(--clients-logo-color);
+
+  border: 1px solid currentColor;
+  border-radius: 4px;
+}
+
+.clients-icon {
+  fill: currentColor;
+}
+
+.clients-link:hover,
+.clients-link:focus {
+  border-color: var(--accent-color);
+  color: var(--accent-color);
+}
+
+/*--------------------------FOOTER--------------------------------*/
 .footer {
-  background-color: var(--hero-footer-bgr);
   padding-top: 60px;
   padding-bottom: 60px;
+
+   background-color: var(--hero-footer-bgr);
 }
 .footer-logo {
   display: inline-block;
+  margin-bottom: 20px;
+
   font-family: 'Raleway', sans-serif;
   font-weight: 700;
   font-size: 26px;
   line-height: 1.19;
-  margin-bottom: 20px;
-
+  
   color: var(--white-color);
 }
 .address {
@@ -306,6 +410,37 @@ img {
 .address-info:hover,
 .address-info:focus {
   color: var(--accent-color);
+}
+
+.footer .container {
+  display: flex;
+  align-items: baseline;
+}
+.footer-address-wrap {
+  margin-right: 70px;
+}
+
+.footer .social-link {
+  color: var(--white-color);
+  background-color: var(--social-link-bgr);
+}
+.footer .social-icon {
+  fill: currentColor;
+}
+
+.footer .social-link:hover,
+.footer .social-link:focus {
+  background-color: var(--accent-color);
+}
+
+.social-text {
+  margin-bottom: 20px;
+
+  font-weight: 700;
+  line-height: 1.14;
+  text-transform: uppercase;
+  
+  color: var(--white-color);
 }
 
 /* Портфоліо */
@@ -341,7 +476,7 @@ img {
     0px 2px 2px rgba(0, 0, 0, 0.12);
 }
 
-/* Проекти */
+/*--------------------- Проекти-------------------- */
 .project {
   display: flex;
   flex-wrap: wrap;
@@ -351,8 +486,17 @@ img {
 .project-holder {
   width: calc((100% - 60px) / 3);
 }
-
+.project-link {
+  display: block;
+}
+.project-link:hover,
+.project-link:focus {
+  box-shadow: 0px 1px 1px rgba(0, 0, 0, 0.12), 0px 4px 4px rgba(0, 0, 0, 0.06),
+    1px 4px 6px rgba(0, 0, 0, 0.16);
+}
 .project-title {
+  margin-bottom: 4px;
+  
   font-size: 18px;
   line-height: 2;
   letter-spacing: 0.06em;
